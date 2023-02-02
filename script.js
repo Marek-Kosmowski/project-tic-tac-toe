@@ -1,5 +1,12 @@
-const players = () => {
+const Player = (sign) => {
+    this.sign
 
+    function getSign() {
+        console.log(sign);
+    }
+    return {
+        getSign
+    };
 }
 
 
@@ -16,10 +23,26 @@ const gameBoard = (() => {
             gameContainer.appendChild(newDiv);
         }
     }
+
+    function clickTest() {
+        const element = document.querySelectorAll('.sign');
+        element.forEach(el => {
+            el.addEventListener('click', () => {
+                el.classList.add('color');
+            })
+        })
+    }
+
+
     return {
-        displayArray
+        displayArray,
+        clickTest,
     };
 
 })();
 
 gameBoard.displayArray();
+gameBoard.clickTest();
+
+const marek = Player('test');
+marek.getSign();
