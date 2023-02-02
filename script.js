@@ -23,26 +23,24 @@ const gameBoard = (() => {
             gameContainer.appendChild(newDiv);
         }
     }
-
-    function clickTest() {
-        const element = document.querySelectorAll('.sign');
-        element.forEach(el => {
-            el.addEventListener('click', () => {
-                el.classList.add('color');
-            })
-        })
-    }
+    //function reated for testing purposes
+    // function clickTest() {
+    //     const element = document.querySelectorAll('.sign');
+    //     element.forEach(el => {
+    //         el.addEventListener('click', () => {
+    //             el.classList.add('color');
+    //         })
+    //     })
+    // }
 
 
     return {
         displayArray,
-        clickTest,
     };
 
 })();
 
 gameBoard.displayArray();
-gameBoard.clickTest();
 
 const marek = Player('test');
 marek.getSign();
