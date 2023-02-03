@@ -18,7 +18,7 @@ const gameBoard = (() => {
     function displayArray() {
         for (let i = 0; i < gameBoard.length; i++) {
             const newDiv = document.createElement('div');
-            newDiv.classList.add('sign');
+            newDiv.classList.add('cell');
             newDiv.innerHTML = gameBoard[i];
             gameContainer.appendChild(newDiv);
         }
