@@ -127,6 +127,7 @@ footer {
   border-radius: 10px;
   border: 2px solid #ee6c4d;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .reset-button:hover {

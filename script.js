@@ -55,19 +55,49 @@
 // };
 
 
-const gameCells = document.querySelectorAll('.cell');
+// const Player = (sign) => {
+//     this.sign;
 
+//     function getSign() {
+//         console.log(sign)
+//     }
+//     return {
+//         getSign
+//     };
+// }
+
+
+const gameCells = document.querySelectorAll('.cell');
+const resetBtn = document.querySelector('.reset-button');
 
 const gameBoard = Array(9).fill(null);
 
+const signX = 'X';
+const signO = 'O';
+let currentPlayer = signX;
 
 // function hasWon(){}
 // function resetGame(){}
 // function drawResult(){}
 
+function playGame(e) {
+    const id = e.target.id;
+    if (!gameBoard[id]) {
+        gameBoard[id] = currentPlayer;
+    }
+    
+    console.log(gameBoard)
+}
 
-// gameCells.forEach(cell => {
-//     cell.addEventListener('click', () => {
-//         cell.innerHTML = 'X';
-//     })
-// })
+
+
+gameCells.forEach(cell => {
+    cell.addEventListener('click', playGame);
+})
+
+function resetGame() {
+    gameCells.forEach(cell => {
+        cell.innerHTML = '';
+    })
+}
+resetBtn.addEventListener('click', resetGame);
