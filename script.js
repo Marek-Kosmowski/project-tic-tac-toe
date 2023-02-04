@@ -81,12 +81,10 @@ let currentPlayer = signX;
 // function drawResult(){}
 
 function playGame(e) {
-    const id = e.target.id;
-    if (!gameBoard[id]) {
-        gameBoard[id] = currentPlayer;
-    }
-    
-    console.log(gameBoard)
+
+    e.target.innerText = currentPlayer;
+    console.log(currentPlayer)
+    currentPlayer = currentPlayer === signX ? signO : signX;
 }
 
 
@@ -97,7 +95,7 @@ gameCells.forEach(cell => {
 
 function resetGame() {
     gameCells.forEach(cell => {
-        cell.innerHTML = '';
+        cell.innerText = '';
     })
 }
 resetBtn.addEventListener('click', resetGame);
