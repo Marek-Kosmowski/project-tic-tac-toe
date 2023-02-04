@@ -57,6 +57,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 56px;
 }
 
 .cell:first-child,
@@ -81,20 +82,18 @@ main {
   border-bottom: none;
 }
 
-.cell::after {
-  /* visibility: hidden; */
+/* .cell::after {
   content: "";
   height: 100px;
   border-left: 5px solid black;
   transform: rotate(45deg);
 }
 .cell::before {
-  /* visibility: hidden; */
   content: "";
   height: 100px;
   border-left: 5px solid black;
   transform: rotate(-45deg);
-}
+} */
 /* .cell::after {
   visibility: hidden;
   content: "";
