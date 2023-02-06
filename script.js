@@ -95,7 +95,7 @@ function hasWon() {
     for (let i = 0; i < winConditions.length; i++) {
         const [a, b, c] = winConditions[i];
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-            alert('win')
+            alert(`${gameBoard[a]} has won!`)
         }
     }
 }
@@ -106,10 +106,9 @@ function playGame(e) {
     if (gameBoard[id] === id) {
         gameBoard[id] = currentPlayer;
         hasWon();
-
     }
+    e.target.innerText = currentPlayer
 
-    e.target.innerText = currentPlayer;
     console.log(gameBoard);
     console.log(currentPlayer)
     currentPlayer = currentPlayer === signX ? signO : signX;
@@ -121,12 +120,12 @@ gameCells.forEach(cell => {
     cell.addEventListener('click', playGame);
 })
 
-function resetGame() {
+function resetGame(e) {
     gameCells.forEach(cell => {
         cell.innerText = '';
     })
-    gameBoard.forEach(el => {
-        el = ''
-    })
+    for (let i = 0; i < gameBoard.length; i++) {
+        gameBoard[i] = null;
+    }
 }
 resetBtn.addEventListener('click', resetGame);
