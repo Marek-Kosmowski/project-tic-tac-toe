@@ -76,18 +76,41 @@ const signX = 'X';
 const signO = 'O';
 let currentPlayer = signX;
 
+const winConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+]
 // function hasWon(){}
 // function resetGame(){}
 // function drawResult(){}
+
+function hasWon() {
+    // const checkWin = [a, b, c]
+    for (let i = 0; i < winConditions.length; i++) {
+        const [a, b, c] = winConditions[i];
+        if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+            alert('win')
+        }
+    }
+}
 
 function playGame(e) {
     const id = e.target.id;
     gameBoard[id] = id;
     if (gameBoard[id] === id) {
         gameBoard[id] = currentPlayer;
+        hasWon();
+
     }
-    console.log(gameBoard);
+
     e.target.innerText = currentPlayer;
+    console.log(gameBoard);
     console.log(currentPlayer)
     currentPlayer = currentPlayer === signX ? signO : signX;
 }
@@ -101,6 +124,9 @@ gameCells.forEach(cell => {
 function resetGame() {
     gameCells.forEach(cell => {
         cell.innerText = '';
+    })
+    gameBoard.forEach(el => {
+        el = ''
     })
 }
 resetBtn.addEventListener('click', resetGame);
