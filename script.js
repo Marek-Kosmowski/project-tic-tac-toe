@@ -107,7 +107,10 @@ function playGame(e) {
         gameBoard[id] = currentPlayer;
         hasWon();
     }
-    e.target.innerText = currentPlayer
+
+    if (!e.target.innerText) {
+        e.target.innerText = currentPlayer
+    }
 
     console.log(gameBoard);
     console.log(currentPlayer)
@@ -120,12 +123,13 @@ gameCells.forEach(cell => {
     cell.addEventListener('click', playGame);
 })
 
-function resetGame(e) {
+function resetGame() {
     gameCells.forEach(cell => {
         cell.innerText = '';
     })
     for (let i = 0; i < gameBoard.length; i++) {
         gameBoard[i] = null;
+        currentPlayer = signX;
     }
 }
 resetBtn.addEventListener('click', resetGame);
