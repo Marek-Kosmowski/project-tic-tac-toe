@@ -81,7 +81,9 @@ let currentPlayer = signX;
 // function drawResult(){}
 
 function playGame(e) {
-
+    const id = e.target.id;
+    gameBoard[id] = id;
+    console.log(gameBoard);
     e.target.innerText = currentPlayer;
     console.log(currentPlayer)
     currentPlayer = currentPlayer === signX ? signO : signX;
