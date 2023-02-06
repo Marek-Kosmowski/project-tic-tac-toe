@@ -83,6 +83,9 @@ let currentPlayer = signX;
 function playGame(e) {
     const id = e.target.id;
     gameBoard[id] = id;
+    if (gameBoard[id] === id) {
+        gameBoard[id] = currentPlayer;
+    }
     console.log(gameBoard);
     e.target.innerText = currentPlayer;
     console.log(currentPlayer)
