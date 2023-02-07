@@ -69,7 +69,6 @@
 
 const gameCells = document.querySelectorAll('.cell');
 const resetBtn = document.querySelector('.reset-button');
-
 const gameBoard = Array(9).fill(null);
 
 const signX = 'X';
@@ -86,38 +85,49 @@ const winConditions = [
     [0, 4, 8],
     [2, 4, 6],
 ]
-// function hasWon(){}
-// function resetGame(){}
-// function drawResult(){}
 
 function hasWon() {
-    // const checkWin = [a, b, c]
     for (let i = 0; i < winConditions.length; i++) {
         const [a, b, c] = winConditions[i];
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
             alert(`${gameBoard[a]} has won!`)
+            gameCells.forEach(cell => {
+                cell.classList.add('disable');
+            })
         }
     }
 }
 
+// function checkDraw() {
+// if(!gameEnd && !hasWon){
+//     console.log('draw')
+// }
+// }
+
 function playGame(e) {
     const id = e.target.id;
     gameBoard[id] = id;
+
     if (gameBoard[id] === id) {
         gameBoard[id] = currentPlayer;
-        hasWon();
     }
 
     if (!e.target.innerText) {
         e.target.innerText = currentPlayer
+        e.target.classList.add('disable');
     }
-
+    hasWon();
+    // checkDraw();
     console.log(gameBoard);
     console.log(currentPlayer)
     currentPlayer = currentPlayer === signX ? signO : signX;
 }
 
-
+function removeDisable() {
+    gameCells.forEach(cell => {
+        cell.classList.remove('disable');
+    })
+}
 
 gameCells.forEach(cell => {
     cell.addEventListener('click', playGame);
@@ -131,5 +141,6 @@ function resetGame() {
         gameBoard[i] = null;
         currentPlayer = signX;
     }
+    removeDisable();
 }
 resetBtn.addEventListener('click', resetGame);
