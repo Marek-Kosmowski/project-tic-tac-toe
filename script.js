@@ -94,15 +94,18 @@ function hasWon() {
             gameCells.forEach(cell => {
                 cell.classList.add('disable');
             })
+        } else if (checkDraw()) {
+            alert('DRAW!')
         }
     }
 }
 
-// function checkDraw() {
-// if(!gameEnd && !hasWon){
-//     console.log('draw')
-// }
-// }
+function checkDraw() {
+    return [...gameCells].every(cell => {
+        return cell.classList.contains('disable')
+    })
+
+}
 
 function playGame(e) {
     const id = e.target.id;
@@ -117,7 +120,7 @@ function playGame(e) {
         e.target.classList.add('disable');
     }
     hasWon();
-    // checkDraw();
+    checkDraw();
     console.log(gameBoard);
     console.log(currentPlayer)
     currentPlayer = currentPlayer === signX ? signO : signX;
@@ -143,4 +146,6 @@ function resetGame() {
     }
     removeDisable();
 }
+checkDraw();
+
 resetBtn.addEventListener('click', resetGame);
