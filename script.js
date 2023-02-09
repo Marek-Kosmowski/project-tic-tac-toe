@@ -83,3 +83,4 @@ function resetGame() {
 }
 
 resetBtn.addEventListener('click', resetGame);
+alert('HELLO WORLD!!')
