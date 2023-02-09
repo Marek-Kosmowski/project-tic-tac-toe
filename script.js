@@ -34,11 +34,12 @@ function hasWon() {
 
 function checkDraw() {
     return [...gameCells].every(cell => {
-        return cell.classList.contains('disable')
+        return cell.classList.contains('xsign') || cell.classList.contains('osign');
     })
 }
 
 function playGame(e) {
+
     const id = e.target.id;
     gameBoard[id] = id;
 
@@ -50,14 +51,19 @@ function playGame(e) {
         e.target.innerText = currentPlayer
         e.target.classList.add('disable');
     }
-    hasWon();
-    // checkDraw();
+    if (currentPlayer === signX) {
+        e.target.classList.add('xsign');
+    } else if (currentPlayer === signO) {
+        e.target.classList.add('osign');
+    }
     currentPlayer = currentPlayer === signX ? signO : signX;
+    hasWon();
+
 }
 
 function removeDisable() {
     gameCells.forEach(cell => {
-        cell.classList.remove('disable');
+        cell.classList.remove('disable', 'xsign', 'osign');
     })
 }
 

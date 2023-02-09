@@ -138,3 +138,10 @@ footer {
 .disable {
   pointer-events: none;
 }
+.xsign{
+  color: red;
+}
+
+.osign{
+  color: blue;
+}
