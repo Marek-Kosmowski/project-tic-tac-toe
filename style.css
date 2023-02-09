@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap");
+
 * {
   margin: 0;
+  font-family: "Ceviche One", "Times New Roman", Times, serif, cursive;
 }
 
 body {
@@ -7,7 +10,6 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 10% 85% 5%;
-  /* align-items: center; */
 }
 
 header {
@@ -16,6 +18,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 50px;
 }
 
 .header-title {
@@ -42,15 +45,6 @@ main {
   align-items: center;
 }
 
-/* .game-container:nth-child(1){
-  background-color: aqua;
-} */
-
-/* .sign {
-  width: 100%;
-  height: 100%;
-  border: 1px solid #ee6c4d;
-} */
 .cell {
   border: 3px solid #ee6c4d;
   width: 100%;
@@ -82,27 +76,6 @@ main {
 .cell:last-child {
   border-bottom: none;
 }
-
-/* .cell::after {
-  content: "";
-  height: 100px;
-  border-left: 5px solid black;
-  transform: rotate(45deg);
-}
-.cell::before {
-  content: "";
-  height: 100px;
-  border-left: 5px solid black;
-  transform: rotate(-45deg);
-} */
-/* .cell::after {
-  visibility: hidden;
-  content: "";
-  height: 100px;
-  width: 100px;
-  border: 5px solid black;
-  border-radius: 90px;
-} */
 
 footer {
   height: 100%;
@@ -138,10 +111,12 @@ footer {
 .disable {
   pointer-events: none;
 }
-.xsign{
-  color: red;
+.xsign {
+  color: #fe7f2d;
+  font-size: 90px;
 }
 
-.osign{
-  color: blue;
+.osign {
+  color: #233d4d;
+  font-size: 90px;
 }
